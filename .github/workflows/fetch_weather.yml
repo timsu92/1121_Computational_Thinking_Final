@@ -5,6 +5,9 @@ on:
     - cron: '15 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   fetch-and-commit:
     runs-on: ubuntu-latest
@@ -31,3 +34,5 @@ jobs:
 
     - name: Commit and Push
       uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Fetch weather data
