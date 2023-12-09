@@ -1,0 +1,33 @@
+name: fetch weather
+
+on:
+  schedule:
+    - cron: '15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up GMT+8 time zone
+      run: sudo timedatectl set-timezone Asia/Taipei
+
+    - name: Fetch Weather Data
+      shell: bash
+      env:
+        CWA_TOKEN: ${{ secrets.CWA_TOKEN }}
+      run: |
+        current_time=$(date +"%Y%m%d_%H%M%S")
+        filename="${current_time}.json"
+
+        curl -sSX 'GET' \
+          "https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001?Authorization=${CWA_TOKEN}&StationId=C0AC80&WeatherElement=&GeoInfo=CountyName,TownName" \
+          -H 'accept: application/json' > "raw_weather_data/$filename" 2>&1
+        chmod 400 "raw_weather_data/$filename"
+
+    - name: Commit and Push
+      uses: stefanzweifel/git-auto-commit-action@v5
