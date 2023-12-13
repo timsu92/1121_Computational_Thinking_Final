@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "1121-computational-thinking-final"
+version = "0.1.0"
+description = ""
+authors = ["timsu92 <33785401+timsu92@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.1.4"
+
+[tool.poetry.group.dev.dependencies]
+doq = "^0.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
