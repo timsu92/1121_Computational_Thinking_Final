@@ -8,5 +8,14 @@
 ### 使用`json2dataframe.py`
 這個檔案適合Python模型組使用，可以將那些JSON原始檔案轉換成Pandas DataFrame。
 
-### 使用`json2csv.py`(還沒寫)
-這個檔案適合rapidminer組使用。等等我再寫要怎麼弄
+### 使用`json2csv.py`
+這個檔案適合rapidminer組使用，可以在執行Python程式後得到csv檔：
+
+1. 安裝Pandas
+   ```sh
+   pip install pandas
+   ```
+2. 執行Python程式
+   ```sh
+   python3 json2csv.py
+   ```
