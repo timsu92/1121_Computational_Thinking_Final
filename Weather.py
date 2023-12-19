@@ -108,13 +108,14 @@ def main():
     print("accuaracy of test set : " , test_acc )
 
     # 進行預測
-    print(" predicting : \n")
+    print("predicting : \n")
 
     # 預測降雨機率
     predictions = model.predict(X_test_sequences)
     print(predictions[-1])
 
-    # print(y_test_labels[-1])
+    print("actual :")
+    print(y_test_labels[-1])
 
 
 
