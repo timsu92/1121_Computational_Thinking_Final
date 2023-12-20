@@ -103,9 +103,9 @@ def main():
 
 
     # Model Evaluation
-    test_loss, test_acc = model.evaluate(X_test_sequences, y_test_labels)
+    test_loss, test_mae = model.evaluate(X_test_sequences, y_test_labels)
     print("loss of test set : " , test_loss )
-    print("Mean Absolute Error of test set : " , test_acc )
+    print("Mean Absolute Error of test set : " , test_mae )
 
     # 進行預測
     print("predicting : \n")
